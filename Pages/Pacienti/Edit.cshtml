@@ -1,0 +1,59 @@
+﻿@page
+@model ARA_Proiect.Pages.Pacienti.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Pacient</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Pacient.ID" />
+            <div class="form-group">
+                <label asp-for="Pacient.Nume" class="control-label"></label>
+                <input asp-for="Pacient.Nume" class="form-control" />
+                <span asp-validation-for="Pacient.Nume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pacient.NumarTelefon" class="control-label"></label>
+                <input asp-for="Pacient.NumarTelefon" class="form-control" />
+                <span asp-validation-for="Pacient.NumarTelefon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pacient.TipProgramare" class="control-label"></label>
+                <input asp-for="Pacient.TipProgramare" class="form-control" />
+                <span asp-validation-for="Pacient.TipProgramare" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pacient.Pret" class="control-label"></label>
+                <input asp-for="Pacient.Pret" class="form-control" />
+                <span asp-validation-for="Pacient.Pret" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pacient.PublishingDate" class="control-label"></label>
+                <input asp-for="Pacient.PublishingDate" class="form-control" />
+                <span asp-validation-for="Pacient.PublishingDate" class="textdanger"></span>
+            </div>
+            <label asp-for="Pacient.MedicID" class="control-label">Medic Name</label>
+            <select asp-for="Pacient.MedicID" class="form-control" asp-items="ViewBag.MedicID">
+            </select>
+            <span asp-validation-for="Pacient.MedicID" class="text-danger"></span>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

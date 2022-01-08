@@ -1,0 +1,66 @@
+﻿@page "/"
+@model ARA_Proiect.Pages.Pacienti.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Programari</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Pacient[0].Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pacient[0].NumarTelefon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pacient[0].TipProgramare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pacient[0].Pret)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pacient[0].PublishingDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pacient[0].Medic.NumeMedic)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Pacient) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumarTelefon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipProgramare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pret)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublishingDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Medic.NumeMedic)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>
